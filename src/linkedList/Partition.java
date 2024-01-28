@@ -26,6 +26,6 @@ public class Partition {
             }
             node = node.next;
         }
-        lessThan.next = greaterThanOrEqual; 
+        lessThan.next = greaterThanOrEqual;
     }
 }
