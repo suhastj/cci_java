@@ -7,6 +7,17 @@ public class Stack<T> {
         StackNode<T> stackNode = new StackNode<T>(data);
         stackNode.next = top;
         top = stackNode;
+
+        // keep maintaining min at each Node level
+        // assumption: T is int data type
+        // can extend function and check data type, if String,
+        // then compare appropriately
+        if(stackNode.next == null){
+            stackNode.min = data;
+        }
+        else {
+            stackNode.min = ((int) data < (int)stackNode.next.data) ? data : stackNode.next.data;
+        }
     }
 
     public T pop() throws Exception{
@@ -27,5 +38,12 @@ public class Stack<T> {
 
     public boolean isEmpty(){
         return top == null;
+    }
+
+    public T min() throws Exception{
+        if(isEmpty()){
+            throw new Exception("Stack is Empty");
+        }
+        return top.min;
     }
 }
