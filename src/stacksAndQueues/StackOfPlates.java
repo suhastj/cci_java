@@ -36,6 +36,13 @@ public class StackOfPlates<T> {
         return returnValue;
     }
 
+    public T popAt(int index) throws Exception{
+        if(setOfStacks.get(index).isEmpty()){
+            throw new Exception("Stack at index " + index + " is empty.");
+        }
+        return setOfStacks.get(index).pop();
+    }
+
     public T peek() throws Exception{
         if(isEmpty()){
             throw new Exception("Stack is Empty");
