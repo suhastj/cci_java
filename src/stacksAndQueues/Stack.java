@@ -2,6 +2,7 @@ package stacksAndQueues;
 
 public class Stack<T> {
     public StackNode<T> top;
+    public int count = 0;
 
     public void push(T data){
         StackNode<T> stackNode = new StackNode<T>(data);
@@ -18,6 +19,7 @@ public class Stack<T> {
         else {
             stackNode.min = ((int) data < (int)stackNode.next.data) ? data : stackNode.next.data;
         }
+        count++;
     }
 
     public T pop() throws Exception{
@@ -26,6 +28,7 @@ public class Stack<T> {
         }
         T returnData = top.data;
         top = top.next;
+        count--;
         return returnData;
     }
 
